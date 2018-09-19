@@ -1,8 +1,14 @@
 # HackIndore
-Website: [hackindore](https://hackindore.splashthat.com)
+
+Website under development.
+
+Till then register at [hackindore](https://hackindore.splashthat.com)
 <br>
 Hackindore Repository for learning resources and problem statements
 <br>
+
+![alt text](https://d24wuq6o951i2g.cloudfront.net/img/events/id/313/3134430/assets/95c.WhatsApp-Image-2018-09-15-at-1.15.41-AM-1-.jpeg poster)
+
 ## About HackIndore
 A hackathon is a software development sprint in which computer programmers and others involved in software development, including designers and software architects collaborate intensively on software projects. #include, official technical club of Information Technology Department is planning to organize an intercollege hackathon #HackIndore that aims to provide software solutions to various academic departments of the institution as well to some industries and companies.
 <br>

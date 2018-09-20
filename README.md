@@ -21,9 +21,9 @@ A hackathon is a software development sprint in which computer programmers and o
 <br>
 Read the articile:
 <br>
-```
+'''
 [I entered a hackathon with only 13 days of coding experience. Here is what I learned.](https://medium.freecodecamp.org/i-entered-a-hackathon-with-13-days-of-coding-experience-here-is-what-i-learnt-5538d73ee7ce)
-```
+'''
 
 
 ## Problem Statements

@@ -1308,6 +1308,7 @@ input::-moz-focus-inner {
   margin-right: 15%;
 }
 
+
 .home-content__subscribe {
   max-width: 420px;
   margin: 4.2rem 0 0 0;
@@ -1690,9 +1691,7 @@ html.no-csstransitions .home-content__main {
     margin-right: 5%;
   }
 
-  .home-content__subscribe {
-    margin: 3rem 0 0 0;
-  }
+  .home-content__subscribe {     margin: 3rem 0 1em 0; }
 
   .home-content__counter .time {
     font-size: 2.4rem;

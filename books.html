@@ -115,7 +115,16 @@
             font-weight: 600;
             margin-top: 2%;
             border-color:#ec008c;
+            cursor:pointer;
         }
+
+        @media only screen and (max-width:800px) {
+            .row{
+                padding: 0;
+        padding-top: 28% !important;
+            padding-right: 5%;
+            }
+            }
 
     </style>
 
@@ -148,7 +157,7 @@
 
             <div class="container h-100">
                 <div class="row h-100" style="padding-top:10%;">
-                    <div class="col-md-12" id ="subject-holder">
+                    <div class="col-md-12" id="subject-holder">
                     </div>
                 </div>
             </div> <!-- end home-content__main -->
@@ -275,22 +284,22 @@
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 
-<script>
-    
-$(function() {
-       var people = [];
-    
-       $.getJSON('/books/subjects.json', function(data) {
-           $.each(data.subjects, function(i, f) {
-            console.log(f);
-            var bookurl ='/book.html?subject='+f;
-            var ele = '<button class="col-md-3 btn-lg btn-class" onclick="location.href=\''+bookurl+'\'">'+f+'</button>';
-            document.getElementById('subject-holder').innerHTML =  document.getElementById('subject-holder').innerHTML +ele;
-         });
-    
-       });
-    
-    });
+    <script>
+
+        $(function () {
+            var people = [];
+
+            $.getJSON('/books/subjects.json', function (data) {
+                $.each(data.subjects, function (i, f) {
+                    console.log(f);
+                    var bookurl = '/book.html?subject=' + f;
+                    var ele = '<button class="col-md-3 btn-lg btn-class" onclick="location.href=\'' + bookurl + '\'">' + f + '</button>';
+                    document.getElementById('subject-holder').innerHTML = document.getElementById('subject-holder').innerHTML + ele;
+                });
+
+            });
+
+        });
     </script>
 
 </body>

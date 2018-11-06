@@ -1,7 +1,28 @@
 {
     "subject": {
-        "Operating Systems":{
-        },
+        "Operating Systems":[
+            {
+                "bookName":"Operating Systems",
+                "author": "William Stallings",
+                "publisher": "Pearson",
+                "edition": "Eighth Edition",
+                "downloadLink":"http://dinus.ac.id/repository/docs/ajar/Operating_System.pdf"
+            },
+            {
+                "bookName":"Operating Systems Concepts",
+                "author": "Galvin and Gagne",
+                "publisher": "Pearson",
+                "edition": "Third Edition",
+                "downloadLink":"http://www.uobabylon.edu.iq/download/M.S%202013-2014/Operating_System_Concepts,_8th_Edition%5BA4%5D.pdf"
+            },
+            {
+                "bookName":"Mordern Operating Systems",
+                "author": "Tanenbaum",
+                "publisher": "Willey Publication",
+                "edition": "Eighth Edition",
+                "downloadLink":"http://stst.elia.pub.ro/news/SO/Modern%20Operating%20System%20-%20Tanenbaum.pdf"
+            }
+        ],
         "Data Mining and Warehousing":[
             {
                 "bookName":"Data Mining: Concepts and Techniques",
@@ -27,18 +48,16 @@
                 "downloadLink":"http://mimoza.marmara.edu.tr/~msakalli/cse706_12/SkienaTheAlgorithmDesignManual.pdf"
             },
             {
-                "bookName":"The Algorithm Design Manua",
+                "bookName":"The Algorithm Design Manual",
                 "author": "Steven S. Skiena",
                 "publisher": "Springer",
                 "edition": "Second Edition",
                 "downloadLink":"http://mimoza.marmara.edu.tr/~msakalli/cse706_12/SkienaTheAlgorithmDesignManual.pdf"
             }
         ],
-        "Data Structures":[],
         "Digital Electronics":[],
         "O.O.P. Object Oriented Programming":[],
         "Discrete Mathematical Structures":[],
-        "Operating Systems":[],
         "Artificial Intelligence":[],
         "Web Technology":[],
         "Data Structures":[],

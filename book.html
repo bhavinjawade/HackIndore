@@ -116,6 +116,7 @@
             margin-top: 2%;
             border-color:#ec008c;
             transition:0.3s;
+            cursor:pointer;
         }
         .book-title{
             font-size: 2em;
@@ -127,10 +128,26 @@
     padding-bottom: 17px;
         }
         .book-author{
-            font-size: 1.2em;
+            font-size: 1.5em;
+    color: #ff8f00;
         }
         .book-publisher{font-size: 1.2em;}
-
+.icon{
+    /* height: 100%; */
+    width: 44%;
+    float: right;
+    margin-top: 7%;
+}
+@media only screen and (max-width:800px) {
+            .row{
+                padding: 0;
+        padding-top: 28% !important;
+            padding-right: 5%;
+            }
+            .img-class{
+                display:none;
+            }
+            }
     </style>
 
 </head>
@@ -163,22 +180,22 @@
             <div class="container h-100">
                 <div class="row h-100" style="padding-top:10%;">
                     <div class="col-md-12" id="book-holder">
-                        </div>
                     </div>
                 </div>
-            </div> <!-- end home-content__main -->
+            </div>
+        </div> <!-- end home-content__main -->
 
-            <ul class="home-social">
-                <li>
-                    <a href="https://www.facebook.com/hashincludesgsits"><i class="fab fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/hashincludesgsits/"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/include._/"><i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
-                </li>
-            </ul> <!-- end home-social -->
+        <ul class="home-social">
+            <li>
+                <a href="https://www.facebook.com/hashincludesgsits"><i class="fab fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/hashincludesgsits/"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/include._/"><i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+            </li>
+        </ul> <!-- end home-social -->
 
         </div> <!-- end home-content -->
 
@@ -300,16 +317,17 @@
             $.getJSON('/books/books.json', function (data) {
                 $.each(data.subject[c], function (i, f) {
                     console.log(f);
-                    var ele = `<div class="col-md-4 div-class" onclick="location.href=\'`+f.downloadLink+`\'">
-                                <div class="col-md-8">
-                                <div class="book-title">`+f.bookName+`</div>
-                                <p class="book-author">`+f.author+`</p>
-                                <p class="book-publisher">`+f.publisher+`<span class="edition">`+f.edition+`</span></p>
+                    var ele = `<div class="col-md-4 div-class" onclick="location.href=\'` + f.downloadLink + `\'">
+                                <div class="col-md-8 col-sm-12 col-xs-12">
+                                <div class="book-title">`+ f.bookName + `</div>
+                                <p class="book-author">`+ f.author + `</p>
+                                <p class="book-publisher">`+ f.publisher + `&nbsp <span class="edition">` + f.edition + `</span></p>
                             </div>
-                            <div class="col-md-4">
+                            <div class="img-class col-md-4 col-sm-0 col-xs-0" style="padding:0;">
+                            <img class = "icon" src ="https://www.freeiconspng.com/uploads/white-download-icon-png-32.png"/>
                             </div>
                         </div>`
-                    document.getElementById('book-holder').innerHTML =  document.getElementById('book-holder').innerHTML +ele;
+                    document.getElementById('book-holder').innerHTML = document.getElementById('book-holder').innerHTML + ele;
                 });
 
             });

@@ -1,0 +1,51 @@
+{
+    "subject": {
+        "Operating Systems":{
+        },
+        "Data Mining and Warehousing":[
+            {
+                "bookName":"Data Mining: Concepts and Techniques",
+                "author": "Jiawei Han and Micheline Kamber",
+                "publisher": "Morgan Kaufmann",
+                "edition": "Third Edition",
+                "downloadLink":"http://myweb.sabanciuniv.edu/rdehkharghani/files/2016/02/The-Morgan-Kaufmann-Series-in-Data-Management-Systems-Jiawei-Han-Micheline-Kamber-Jian-Pei-Data-Mining.-Concepts-and-Techniques-3rd-Edition-Morgan-Kaufmann-2011.pdf"
+            },
+            {
+                "bookName":"Data Mining the Textbook",
+                "author": "Charu Aggrawal",
+                "publisher": "Springer",
+                "edition": "",
+                "downloadLink":"https://doc.lagout.org/Others/Data%20Mining/Data%20Mining_%20The%20Textbook%20%5BAggarwal%202015-04-14%5D.pdf"
+            }
+        ],
+        "A.D.A Design and Analysis Of Algorithms":[
+            {
+                "bookName":"Introduction to Algorithms",
+                "author": "Thomas Cormen, Leiserson, Rivest, Stein",
+                "publisher": "Springer",
+                "edition": "Thrid Edition",
+                "downloadLink":"http://mimoza.marmara.edu.tr/~msakalli/cse706_12/SkienaTheAlgorithmDesignManual.pdf"
+            },
+            {
+                "bookName":"The Algorithm Design Manua",
+                "author": "Steven S. Skiena",
+                "publisher": "Springer",
+                "edition": "Second Edition",
+                "downloadLink":"http://mimoza.marmara.edu.tr/~msakalli/cse706_12/SkienaTheAlgorithmDesignManual.pdf"
+            }
+        ],
+        "Data Structures":[],
+        "Digital Electronics":[],
+        "O.O.P. Object Oriented Programming":[],
+        "Discrete Mathematical Structures":[],
+        "Operating Systems":[],
+        "Artificial Intelligence":[],
+        "Web Technology":[],
+        "Data Structures":[],
+        "Compiler Design":[],
+        "Advanced Computer Architecture":[],
+        "Distributed Computing":[],
+        "O.O.A.D. Object Oriented Analysis and Design":[],
+        "Software Engineering":[]
+    }
+ }

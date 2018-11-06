@@ -90,23 +90,23 @@
             height: 100%;
         }
 
-        .btn-class {
-            width: 22%;
+        .div-class {
             margin-left: 3%;
-            border-radius: 0px;
-            background: transparent;
-            color: white !important;
-            /* font-family: domine-regular, serif; */
-            /* font-size: 1.1em; */
-            font-weight: 600;
-            margin-top: 2%;
-            outline:none;
-            overflow:hidden;
-            text-overflow: ellipsis;
+    border-radius: 0px;
+    background: transparent;
+    color: white !important;
+    /* font-family: domine-regular, serif; */
+    /* font-size: 1.1em; */
+    font-weight: 600;
+    margin-top: 2%;
+    outline: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 2px solid white;
+    padding: 1%;
         }
 
-        .btn-class:hover {
-            width: 22%;
+        .div-class:hover {
             margin-left: 3%;
             border-radius: 0px;
             background:#ec008c;
@@ -115,7 +115,21 @@
             font-weight: 600;
             margin-top: 2%;
             border-color:#ec008c;
+            transition:0.3s;
         }
+        .book-title{
+            font-size: 2em;
+    width: 100%;
+    /* height: 7%; */
+    text-overflow: ellipsis;
+    margin-bottom: 13px;
+    border-bottom: 1px solid white;
+    padding-bottom: 17px;
+        }
+        .book-author{
+            font-size: 1.2em;
+        }
+        .book-publisher{font-size: 1.2em;}
 
     </style>
 
@@ -148,7 +162,8 @@
 
             <div class="container h-100">
                 <div class="row h-100" style="padding-top:10%;">
-                    <div class="col-md-12" id ="subject-holder">
+                    <div class="col-md-12" id="book-holder">
+                        </div>
                     </div>
                 </div>
             </div> <!-- end home-content__main -->
@@ -275,22 +290,31 @@
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 
-<script>
-    
-$(function() {
-       var people = [];
-    
-       $.getJSON('/books/subjects.json', function(data) {
-           $.each(data.subjects, function(i, f) {
-            console.log(f);
-            var bookurl ='/book.html?subject='+f;
-            var ele = '<button class="col-md-3 btn-lg btn-class" onclick="location.href=\''+bookurl+'\'">'+f+'</button>';
-            document.getElementById('subject-holder').innerHTML =  document.getElementById('subject-holder').innerHTML +ele;
-         });
-    
-       });
-    
-    });
+    <script>
+
+        $(function () {
+            var people = [];
+            var url = new URL(window.location.href);
+            var c = url.searchParams.get("subject");
+            console.log(c);
+            $.getJSON('/books/books.json', function (data) {
+                $.each(data.subject[c], function (i, f) {
+                    console.log(f);
+                    var ele = `<div class="col-md-4 div-class" onclick="location.href=\'`+f.downloadLink+`\'">
+                                <div class="col-md-8">
+                                <div class="book-title">`+f.bookName+`</div>
+                                <p class="book-author">`+f.author+`</p>
+                                <p class="book-publisher">`+f.publisher+`<span class="edition">`+f.edition+`</span></p>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                        </div>`
+                    document.getElementById('book-holder').innerHTML =  document.getElementById('book-holder').innerHTML +ele;
+                });
+
+            });
+
+        });
     </script>
 
 </body>

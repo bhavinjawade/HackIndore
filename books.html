@@ -280,7 +280,7 @@
 $(function() {
        var people = [];
     
-       $.getJSON('http://localhost:8000/books/subjects.json', function(data) {
+       $.getJSON('/books/subjects.json', function(data) {
            $.each(data.subjects, function(i, f) {
             console.log(f);
             var ele = "<button class='col-md-3 btn-lg btn-class'>"+f+"</button>";

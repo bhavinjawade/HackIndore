@@ -404,19 +404,19 @@ textarea {
  * # grid - (_grid.scss)
  *
  * ------------------------------------------------------------------- */
-.row {
+.row-matrix {
   width: 94%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.row:after {
+.row-matrix-matrix:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.row .row {
+.row-matrix .row-matrix {
   width: auto;
   max-width: none;
   margin-left: -20px;
@@ -496,7 +496,7 @@ textarea {
  * ## medium size devices - (_grid.scss)
  * ------------------------------------------------------------------- */
 @media only screen and (max-width:1200px) {
-  .row .row {
+  .row-matrix .row-matrix {
     margin-left: -15px;
     margin-right: -15px;
   }
@@ -567,7 +567,7 @@ textarea {
  * ## tablets - (_grid.scss)
  * ------------------------------------------------------------------- */
 @media only screen and (max-width:800px) {
-  .row {
+  .row-matrix {
     width: 90%;
   }
 
@@ -605,13 +605,13 @@ textarea {
  * ## mobile devices - (_grid.scss)
  * ------------------------------------------------------------------- */
 @media only screen and (max-width:600px) {
-  .row {
+  .row-matrix {
     width: auto;
     padding-left: 25px;
     padding-right: 25px;
   }
 
-  .row .row {
+  .row-matrix .row-matrix {
     margin-left: -10px;
     margin-right: -10px;
     padding-left: 0;
@@ -659,7 +659,7 @@ textarea {
 /* stack columns on small mobile devices
  * ------------------------------------------------------------------- */
 @media only screen and (max-width:400px) {
-  .row .row {
+  .row-matrix .row-matrix {
     margin-left: 0;
     margin-right: 0;
   }
@@ -684,7 +684,7 @@ textarea {
  * # block grids - (_grid.scss)
  * ------------------------------------------------------------------- */
 
-/*   Equally-sized columns define at row level
+/*   Equally-sized columns define at row-matrix level
  * ------------------------------------------------------------------- */
 [class*="block-"]:after {
   content: "";

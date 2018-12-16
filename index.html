@@ -1,4 +1,4 @@
-<html class="js svg audio canvas cssremunit csscalc cssgradients supports no-touchevents video cssanimations cssfilters flexbox flexboxlegacy no-flexboxtweener flexwrap csstransforms csstransforms3d csstransitions backgroundblendmode gr__includesgsits_tech ss-loaded"
+<html class="js svg audio canvas cssremunit csscalc cssgradients supports no-touchevents video cssanimations cssfilters flexbox flexboxlegacy no-flexboxtweener flexwrap csstransforms csstransforms3d csstransitions backgroundblendmode gr__includesgsits_tech ss-loaded svg audio canvas cssremunit csscalc cssgradients supports no-touchevents video cssanimations cssfilters flexbox flexboxlegacy no-flexboxtweener flexwrap csstransforms csstransforms3d csstransitions backgroundblendmode svg audio canvas cssremunit csscalc cssgradients supports no-touchevents video cssanimations cssfilters flexbox flexboxlegacy no-flexboxtweener flexwrap csstransforms csstransforms3d csstransitions backgroundblendmode"
     lang="en" style="" data-useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36">
 
 <head>
@@ -9,16 +9,22 @@
     <title>#include S.G.S.I.T.S.</title>
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#000000">
     <!-- mobile specific metas
         ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="yJWzkKPz0-0KXPTnkw9rfck4x2b2Oiy2_niyf9-7vU8" />    
+    <meta name="google-site-verification" content="yJWzkKPz0-0KXPTnkw9rfck4x2b2Oiy2_niyf9-7vU8" />   
     <!-- CSS
         ================================================== -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/main.css">
+
+    <!-- Bootstrap
+        ================================================== -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- script
         ================================================== -->
@@ -58,35 +64,137 @@
             border: 2px solid #ec008c;
         }
 
-        .blogs:hover{
-            color: #ec008c;
-    font-size: 0.8em;
-    font-family: domine-regular, serif;
-    /* font-weight: 800; */
-    background-color: transparent;
-    padding: 1%;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin: 2%;
-    border: 2px solid #ec008c !important;
+        html,
+        body {
+            overflow: auto;
         }
-        .blogs{
-            color: white;
-    font-size: 0.8em;
-    font-family: domine-regular, serif;
-    /* font-weight: 800; */
-    background-color: #ec008c;
-    padding: 1%;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin: 2%;
-    border: 2px solid #ec008c !important;
+
+        .home-content {
+            overflow: hidden;
+        }
+
+        .s-home {
+            min-height: 0%;
+        }
+
+        #mylogo1{height: 200px;}
+
+        #mylogo2{width: 300px;}
+
+        #navigate{height: 10vh;
+	 			  width: 90%;
+	 			  margin-left: 5%;
+        		  background-color: #000;
+        		  position: fixed;
+        		  top: 0;
+        		  z-index: 502;
+        		  border-bottom-left-radius:10px;
+        		  border-bottom-right-radius:10px;}
+
+        #navigate ul{border: 0px solid white;
+        			 width: 50%;
+					 list-style-type: none;
+					 float: right;
+				     margin:2vh 10vw 0 0;}	
+
+		#navigate li{border: 0px solid white;
+					 display: inline;
+					 font-size: 1.5vw;
+					 border-radius: 10px;
+					 padding: 5px 10px;
+					 margin: 0 5% 0 5%;
+					 color: white;}
+		#navigate li a{color: white;
+                       text-decoration: none;}			 
+		#navigate li:hover{background-color: #ec008c}			 	
+
+		#navigate img{width: 12%;
+					  margin: 2vh 2%;
+					  border: 0px solid white;}
+
+		#footer{height: 22vh;
+				width: 100%;
+				background-color: #000;}
+        #footer h3{color: #ec008c;}
+        #footer p{color: #fff;}
+                                			  			 	  
+
+        @media only screen and (max-width:800px) {
+            .info-toggle::after{
+                content: "";
+            }
+
+            #mylogo1{height: auto;
+                     margin-top: -25vh;
+                     width: 50%;}
+
+            #mylogo2{width: 60%;}
+
+            #navigate{height: 10vh;
+                      width: 90%;
+                      margin-left: 5%;
+                      background-color: #000;
+                      position: fixed;
+                      top: 0;
+                      z-index: 502;
+                      border-bottom-left-radius:10px;
+                      border-bottom-right-radius:10px;}
+
+            #navigate ul{border: 0px solid white;
+                         width: 50%;
+                         list-style-type: none;
+                         float: right;
+                         margin:2vh 10vw 0 0;}  
+
+            #navigate li{border: 0px solid white;
+                         display: inline;
+                         font-size: 1.5vw;
+                         border-radius: 10px;
+                         padding: 5px 10px;
+                         margin: 0 5% 0 5%;
+                         color: white;}
+            #navigate li a{color: white;}            
+            #navigate li:hover{background-color: #ec008c}               
+
+            #navigate img{width: 25%;
+                          margin: 3vh 5%;
+                          float: right;
+                          border: 0px solid white;}
+
+            #footer{height: auto;
+                    width: 100%;
+                    background-color: #000;}
+            #footer h3{color: #ec008c;}
+            #footer p{color: #fff;}
+
+            .opt{text-align: center;
+                 border: 1px solid black;
+                 font-size: 6vw;
+                 padding: 2vh 0;
+                 color: #ec008c;}
+
+            .opt:hover{background-color: #ec008c;
+                       color: #fff;}     
+            .dropdown a{text-decoration: none;}     
+
         }
     </style>
 
 </head>
 
-<body class="  pace-done" data-gr-c-s-loaded="true">
+<body class="      pace-done" data-gr-c-s-loaded="true">
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
     <div class="pace  pace-inactive">
         <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
             <div class="pace-progress-inner"></div>
@@ -96,57 +204,34 @@
 
     <!-- home
         ================================================== -->
-    <main class="s-home s-home--particles">
+    <main class="s-home s-home--particles" style="
+    /* overflow: hidden; */
+    height: auto;
+">
 
-        <div id="particles-js" class="home-particles"><canvas class="particles-js-canvas-el" width="554" height="720" style="width: 100%; height: 100%;"></canvas></div>
+        <div id="particles-js" class="home-particles"><canvas class="particles-js-canvas-el" width="664" height="483"
+                style="width: 100%; height: 100%;"></canvas></div>
 
         <div class="gradient-overlay"></div>
 
-        <div class="home-content">
-
-            <div class="home-logo">
-                <a href="http://www.includesgsits.tech">
-                    <img src="images/logo.png" alt="Homepage">
-                </a>
-            </div>
+        <div class="home-content" style="
+    height: auto !important;
+    min-height: auto !important;
+">
+	
 
             <div class="row home-content__main">
 
                 <div class="col-eight home-content__text pull-right">
-                    <h3>Welcome to includesgsits.tech</h3>
-
-                    <h1>
-                        Our Upcoming Event HackIndore <br>
-                    </h1>
-
-                    <p>
-                        A hackathon is a software development sprint in which computer programmers and others involved in software development, including
-                        designers and software architects collaborate intensively on software projects. #include, official
-                        technical club of Information Technology Department @ S.G.S.I.T.S. is planning to organize an intercollege
-                        hackathon #HackIndore that aims to provide software solutions to various academic departments of
-                        the institution as well to some industries and companies.
-                    </p>
+                    <img src="favicon.png" id="mylogo1">
+                    <img src="images/logo.png" id="mylogo2" class="">
+                    <br>
+                    <h3>A techno-learning club associated with talent, knowledge and learning is the official club of Information Technology Department.</h3>
                 </div> <!-- end home-content__text -->
 
                 <div class="col-four home-content__counter">
-                    <h3>HackIndore Starting In</h3>
-
-                    <div class="home-content__clock">
-                        <div class="top">
-                            <div class="time days">04 <span>days</span></div>
-                        </div>
-                        <div class="time hours">04 <span>H</span></div>
-                        <div class="time minutes">14 <span>M</span></div>
-                        <div class="time seconds">12 <span>S</span></div>
-                    </div> <!-- end home-content__clock -->
-
                     <div class="home-content__subscribe">
-                            <p style="color:white;font-size:1.2em; font-family: domine-regular, serif">Visit HackIndore Website</p>
-                            <a href="http://www.hackindore.splashthat.com" class="clickhere">
-                                Click Here
-                            </a>
                     </div>
-
                 </div> <!-- end home-content__counter -->
 
             </div> <!-- end home-content__main -->
@@ -163,8 +248,7 @@
                 </li>
             </ul> <!-- end home-social -->
 
-            <div class="row home-copyright">
-            </div> <!-- end home-copyright -->
+            <!-- end home-copyright -->
 
 
             <div class="home-content__line"></div>
@@ -173,79 +257,82 @@
 
     </main> <!-- end s-home -->
 
+    <div class="title"></div>
+    <div class="blog-content" style="color: black;background-color: white;padding: 2% 8%;">
+    	
+    	<i>#include, SGSITS, Indore</i><br>
+    	<q style="text-align: justify;">We are a collaboration of ardent technophiles and zealous learners who believe that the central purpose of education, learning and collaboration is to mediate voluntary evolution. We believe that an investment in knowledge is the best thing an individual can do. We try to provide the best possible environment for students to reach their maximum potential and to chisel their abilities to the best of their capacities.</q>
 
-    <!-- info
-        ================================================== -->
-    <a class="info-toggle" href="#0">
-        <span class="info-menu-icon"></span>
-    </a>
+		<h2>Events Calender</h2>
+		<br><br><br><br><br><br><br><br><br><br><br><br>
+		<h2>Our Collaborators</h2>
+		<br><br><br><br><br><br><br><br><br><br><br><br>
 
-    <div class="s-info">
-        <div class="row info-wrapper">
-            <div class="col-seven tab-full info-main">
-                <h1>
-                    About #include S.G.S.I.T.S Indore
-                </h1>
-                <h2 style="color:white;">
-                        <a href="./blogs.html" class="blogs">
-                            Blogs
-                        </a>
-                        <a href="./books.html" class="blogs">
-                            Books
-                        </a>
-                    </h2>
+		
+
+
+    </div>
+
+
+    <div id="footer">
+        	
+        <div class="col-md-4" style="text-align: center;">
+            <h3>Start A Conversation</h3>
                 <p>
-                    #Include - A techno-learning club associated with talent, knowledge and learning is the official club of Information Technology
-                    Department.
+                    <a href="mailto:#0" class="info-email">contactus@includesgsits.tech</a><br>
+                    <a href="tel:+919630494120" class="'info-phone">+91 9630494120</a>
                 </p>
+        </div>
 
-                <p>We are a collaboration of ardent technophiles and zealous learners who believe that the central purpose
-                    of education, learning and collaboration is to mediate voluntary evolution. We believe that an investment
-                    in knowledge is the best thing an individual can do. We try to provide the best possible environment
-                    for students to reach their maximum potential and to chisel their abilities to the best of their capacities.
+        <div class="col-md-4" style="text-align: center;">
+            <h3>Visit Our Office</h3>
+                <p>S.G.S.I.T.S. Indore<br> 23, Sir M. Visvesvaraya Marg, Vallabh Nagar, <br>Indore, Madhya Pradesh<br>452003
                 </p>
+        </div>
+
+        <div class="col-md-4" style="text-align: center;">
+            <h3>Find Us On</h3>
+                <ul class="info-social">
+                    <li>
+                        <a href="https://www.facebook.com/hashincludesgsits"><i class="fab fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/hashincludesgsits/"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/include._/"><i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+                    </li>
+                </ul>
+        </div>
+
+                
+
+    </div>
+
+    <!-- nav
+        ================================================== -->
+    
+    <div id="navigate">
+    	<img src="images/logo.png">
+    	<ul class="hidden-xs">
+			<li><a href="events.html">Events</a></li>
+			<li><a href="blogs.html">Blogs</a></li>
+			<li><a href="books.html">Books</a></li>
+		</ul>
+    
+
+        
+            <a data-toggle="collapse" href="#collapse1"><span class="info-menu-icon visible-xs"></span></a>
+                    
+            <div id="collapse1" class="panel-collapse collapse dropdown" style="background-color:white;width: 90%;text-align:;position: fixed;top: 8vh;left: 5%;">
+                <a href="events.html"><div class="opt">Events</div></a>
+                <a href="blogs.html"><div class="opt">Blogs</div></a>
+                <a href="books.html"><div class="opt">Books</div></a>
+               
             </div>
+            
 
-            <div class="col-four tab-full pull-right info-contact">
-
-                <div class="info-block">
-                    <h3>Start A Conversation</h3>
-                    <p>
-                        <a href="mailto:#0" class="info-email">contactus@includesgsits.tech</a><br>
-                        <a href="tel:+919630494120" class="'info-phone">+91 9630494120</a>
-                    </p>
-                </div>
-
-                <div class="info-block">
-                    <h3>Visit Our Office</h3>
-
-                    <p class="info-address">
-                        <br> S.G.S.I.T.S. Indore<br> 23, Sir M. Visvesvaraya Marg, Vallabh Nagar, <br>Indore, Madhya Pradesh
-                        <br>452003
-                    </p>
-                </div>
-
-                <div class="info-block">
-                    <h3>Find Us On</h3>
-
-                    <ul class="info-social">
-                        <li>
-                            <a href="https://www.facebook.com/hashincludesgsits"><i class="fab fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/hashincludesgsits/"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/include._/"><i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div> <!-- end info contact -->
-
-        </div> <!-- end info wrapper -->
-
-    </div> <!-- end s-info -->
+    </div>
 
 
     <!-- preloader
@@ -268,6 +355,8 @@
     <script src="js/plugins.js"></script>
     <script src="js/polygons.js"></script>
     <script src="js/main.js"></script>
+
+
 
 
 

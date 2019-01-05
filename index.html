@@ -38,6 +38,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
     <!--ANGULAR JS ROUTE MODULE-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <!--CONTENTFUL API MODULE-->
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
 
     <style>
         .clickhere {
@@ -308,6 +310,25 @@ var app = angular.module('myApp', []);
        
        $scope.display_event = 0;
        $scope.event_show = 1;
+       client = contentful.createClient({
+            space: '4wihyj7kcyb3',
+            accessToken: '555de7ee2809a4840be51aca63bfda5bf8bb7ee7667603547c0d9067eecf0fa5'
+        });
+        //Function to fetch image from CONTENTFUL API
+        function fetchimages (key){ 
+            imageURL=[]
+            client.getAssets(key)
+                .then(function (assets) {
+                    assets.items.map(function(asset){
+                    imageURL += 'https:' + asset.fields.file.url;
+                    });
+                })
+                .catch(function (e) {
+                    console.log(e);
+                });
+            console.log(imageURL);
+            return imageURL;
+        }
 
        $scope.next_event = function(){
        		if($scope.display_event != ($scope.events.length - 1)){
@@ -334,7 +355,7 @@ var app = angular.module('myApp', []);
        		heading:"heading1",
        		name:"Event1",
        		content:"content1",
-       		image:["https://png.pngtree.com/thumb_back/fw800/back_pic/03/70/72/5257b6c12d89875.jpg", "https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg", "https://motionarray-portfolio.imgix.net/preview-83721-73b2ffab8d22cad99c5c66f9b51b4993-high.jpg?w=750&q=60&fit=max&auto=format", "https://www.planwallpaper.com/static/images/violet-vector-leaves-circles-backgrounds-for-powerpoint_PdfkI4q.jpg"]
+       		image: fetchimages('7xDNqb9gm4SAe4Ga0qQYk')
        	},
        	{
        		heading:"heading2",

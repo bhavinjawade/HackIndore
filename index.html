@@ -93,7 +93,60 @@
     margin: 2%;
     border: 2px solid #ec008c !important;
         }
-        .next-event-button:hover{color: white;}
+        
+		#cover{background-color:rgba(255,255,255,0);
+			position:fixed;
+			top: 0;
+			left: 0;
+			height: 100vh;
+			width: 102%;
+			z-index: 501;
+			overflow: auto;}
+
+		#event-img-heading{position: fixed;
+			text-align: center;
+			padding: 0 20px;
+			color: white;
+			background-color:rgba(0,0,0,0.6);
+			font-size: 4rem;
+			top: 5%;
+			left: 50%;
+			transform:translate(-50%,0);}
+
+        #images-anchor{position: fixed;
+            bottom: 15%;
+            left: 50%;
+            transform:translate(-50%,0);}
+
+		.change-event-button{padding: 0 20px;
+			font-size: 10rem;
+			background-color:rgba(0,0,0,0.5);
+			position:fixed;
+			top: 30%;
+			z-index: 502;
+			cursor: pointer;}
+
+		.next-event-button{right: 0;}
+		.previous-event-button{left: 0;}
+
+        .change-event-button:hover{color: white;}
+		
+		@media only screen and (max-width: 600px){
+			
+            #cover{position:relative;
+                top: -75vh;}
+
+            #images-anchor{bottom: -10%;}
+
+            .change-event-button{
+				padding: 0 2px;
+				font-size: 5rem;}
+
+			#event-img-heading{
+				padding: 0 20px;
+				font-size: 2rem;
+				top: 0;}
+		}
     </style>
 
 </head>
@@ -122,13 +175,13 @@
                 </a>
             </div>
 
-            <div id="fade" class="row home-content__main align-center" style="padding-top: 50;">
+            <div id="fade" class="row home-content__main align-center" style="padding-top: 70px;">
 
                 <div class="col-eight home-content__text pull-right">
                     <h3>Welcome to includesgsits.tech</h3>
 
                     <h1>
-                        Our Upcoming Event {{events[display_event].name}} <br>
+                        {{events[display_event].name}} <br>
                     </h1>
 
                     <p>
@@ -148,7 +201,7 @@
                         <div class="time seconds">12 <span>S</span></div>
                     </div> <!-- end home-content__clock -->
 
-                    <div class="home-content__subscribe">
+                    <div class="home-content__subscribe" style="z-index: 502;">
                             <p style="color:white;font-size:1.2em; font-family: domine-regular, serif">Visit HackIndore Website</p>
                             <a href="http://www.hackindore.splashthat.com" class="clickhere">
                                 Click Here
@@ -163,22 +216,22 @@
 
 		<!-- EVENT IMAGES DISPLAY HERE
         ================================================== -->
-		<div id="cover" onscroll="myFunction()" style="background-color: rgba(255,255,255,0);position: fixed;top: 0;left: 0;height: 100%;width: 102%;z-index: 501;overflow: auto;">
-        	<p id="display" style="position: fixed;"></p>
-        	<div id="event-img-heading" style="position: fixed;text-align: center;padding: 0 20px;color: white; background-color:  rgba(0,0,0,0.6);font-size: 4rem; top: 5%; left: 50%;transform: translate(-50%,0);">{{events[display_event].name}}</div>
+		<div id="cover" onscroll="myFunction()">
+        	<p id="display" style="position: fixed;"><!--scroll count--></p>
+        	<div id="event-img-heading">{{events[display_event].name}}</div>
+            <div id="images-anchor"><i style="color: #ec008c;" class="fa fa-arrow-circle-up"></i> Event Photographs</div>
 			<div id="event-images" style="background-color: rgba(0,0,0,0.2); height: auto;width: 100%;margin-top: 100vh;">
 				<div ng-repeat="pic in events[display_event].image">
 					<img ng-src="{{pic}}" alt="image" style="height: auto;width: 80vw;margin: 0 10% 5% 10%;">
 				</div>	
 			</div>
-
 		</div>
 		<!-- ================================================== -->
 
 		<!-- BUTTON FOR NEXT, PREVIOUS EVENT
         ================================================== -->
-		<div ng-click="next_event()" ng-show="display_event != (events.length - 1)" class="next-event-button" style="padding: 0 20px;font-size: 100px; background-color: rgba(0,0,0,0.5);position:fixed;top: 30%;right: 0;z-index: 502;cursor: pointer;">&#10097;</div>
-		<div ng-click="previous_event()" ng-show="display_event != 0" class="next-event-button" style="padding: 0 20px;font-size: 100px; background-color: rgba(0,0,0,0.5);position:fixed;top: 30%;left: 0;z-index: 502;cursor: pointer;">&#10096;</div>
+		<div ng-click="next_event()" ng-show="display_event != (events.length - 1)" class="change-event-button next-event-button">&#10097;</div>
+		<div ng-click="previous_event()" ng-show="display_event != 0" class="change-event-button previous-event-button">&#10096;</div>
 		<!-- ================================================== -->
 	
     </main> <!-- end s-home -->
@@ -294,42 +347,28 @@
 	function myFunction() {
 		var x = document.getElementById("event-images");
 		var divoffset = offset(x);
-	  document.getElementById("display").innerHTML = divoffset.top;
+	  //document.getElementById("display").innerHTML = divoffset.top;
 	  fade(divoffset.top);
 	}
 
 	document.getElementById("event-img-heading").style.opacity = 0;
 	function fade(i){
-		document.getElementById("fade").style.opacity = (i-426)/200;
-		document.getElementById("event-img-heading").style.opacity = (626-i)/200;
+        var h = window.innerHeight;
+		document.getElementById("fade").style.opacity = (i-(h-h/3))/(h/3);
+        document.getElementById("images-anchor").style.opacity = (i-(h-h/3))/(h/3);
+		document.getElementById("event-img-heading").style.opacity = (h-i)/(h/3);
 	}
 /*==========================================================*/
 
+/*ANGULAR CONTROLLER
+========================================================*/
 var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope, $timeout){
+    app.controller('myCtrl', function($scope, $timeout, $http){
        
        $scope.display_event = 0;
        $scope.event_show = 1;
-       client = contentful.createClient({
-            space: '4wihyj7kcyb3',
-            accessToken: '555de7ee2809a4840be51aca63bfda5bf8bb7ee7667603547c0d9067eecf0fa5'
-        });
-        //Function to fetch image from CONTENTFUL API
-        function fetchimages (key){ 
-            imageURL=[]
-            client.getAssets(key)
-                .then(function (assets) {
-                    assets.items.map(function(asset){
-                    imageURL += 'https:' + asset.fields.file.url;
-                    });
-                })
-                .catch(function (e) {
-                    console.log(e);
-                });
-            console.log(imageURL);
-            return imageURL;
-        }
-
+       
+       /*Next Event Button*/
        $scope.next_event = function(){
        		if($scope.display_event != ($scope.events.length - 1)){
        			$scope.event_show = 0;
@@ -340,6 +379,7 @@ var app = angular.module('myApp', []);
        		}
        }
 
+       /*Previous Event Button*/
        $scope.previous_event = function(){
        		if($scope.display_event != 0){
        			$scope.event_show = 0;
@@ -350,41 +390,40 @@ var app = angular.module('myApp', []);
        		}
        }
 
+       /*Fetching Event Images from Json Files
+       ===========================================*/
+       $http.get("cipherit.json")
+            .then(function(res){
+                $scope.events[0].image = res.data.imageURL;            
+            });
+
+        $http.get("hackindore.json")
+            .then(function(res){
+                $scope.events[1].image = res.data.imageURL;            
+            });
+        /*=========================================*/        
+
+       /*Event Details
+       ===========================================*/
        $scope.events = [
        	{
-       		heading:"heading1",
-       		name:"Event1",
+       		name:"CipherIT",
        		content:"content1",
-       		image: fetchimages('7xDNqb9gm4SAe4Ga0qQYk')
+       		image: []
        	},
        	{
-       		heading:"heading2",
-       		name:"Event2",
+       		name:"HackIndore",
        		content:"content2",
-       		image:["https://png.pngtree.com/thumb_back/fw800/back_pic/03/70/72/5257b6c12d89875.jpg", "https://motionarray-portfolio.imgix.net/preview-83721-73b2ffab8d22cad99c5c66f9b51b4993-high.jpg?w=750&q=60&fit=max&auto=format", "https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg", "https://www.planwallpaper.com/static/images/violet-vector-leaves-circles-backgrounds-for-powerpoint_PdfkI4q.jpg"]
-       	},
-       	{
-       		heading:"heading3",
-       		name:"Event3",
-       		content:"content3",
-       		image:["https://png.pngtree.com/thumb_back/fw800/back_pic/03/70/72/5257b6c12d89875.jpg", "https://motionarray-portfolio.imgix.net/preview-83721-73b2ffab8d22cad99c5c66f9b51b4993-high.jpg?w=750&q=60&fit=max&auto=format", "https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg", "https://www.planwallpaper.com/static/images/violet-vector-leaves-circles-backgrounds-for-powerpoint_PdfkI4q.jpg"]
-       	},
-       	{
-       		heading:"heading4",
-       		name:"Event4",
-       		content:"content4",
-       		image:["https://png.pngtree.com/thumb_back/fw800/back_pic/03/70/72/5257b6c12d89875.jpg", "https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg", "https://motionarray-portfolio.imgix.net/preview-83721-73b2ffab8d22cad99c5c66f9b51b4993-high.jpg?w=750&q=60&fit=max&auto=format", "https://www.planwallpaper.com/static/images/violet-vector-leaves-circles-backgrounds-for-powerpoint_PdfkI4q.jpg"]
+       		image: []
        	}
        ];
-
+       /*=========================================*/
    
     });
-
+/*========================================================*/
 
 </script>
 	
-
-
 </body>
 
 </html>

@@ -29,6 +29,22 @@
         ================================================== -->
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="icon" href="favicon.png" type="image/x-icon">
+    
+    <!-- firebase
+        ================================================== -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <script>
+     // Initialize Firebase
+     var config = {
+       apiKey: "AIzaSyA4cQZ2xG1WCf-vpUekt-U_doK4lV3FVNU",
+       authDomain: "includesgsits-aa89e.firebaseapp.com",
+       databaseURL: "https://includesgsits-aa89e.firebaseio.com",
+       projectId: "includesgsits-aa89e",
+       storageBucket: "includesgsits-aa89e.appspot.com",
+       messagingSenderId: "496619559074"
+     };
+     firebase.initializeApp(config);
+    </script>
 
     <!-- Angular
         ================================================== -->
@@ -177,7 +193,7 @@
 
             <div id="fade" class="row home-content__main align-center" style="padding-top: 70px;">
 
-                <div class="col-eight home-content__text pull-right">
+                <div class="col-eight home-content__text pull-right" style="text-align: left;padding-left: 5px;">
                     <h3>Welcome to includesgsits.tech</h3>
 
                     <h1>
@@ -190,7 +206,7 @@
                 </div> <!-- end home-content__text -->
 
                 <div class="col-four home-content__counter">
-                    <h3>HackIndore Starting In</h3>
+                    <h3>{{events[display_event].name}} Starting In</h3>
 
                     <div class="home-content__clock">
                         <div class="top">
@@ -202,12 +218,19 @@
                     </div> <!-- end home-content__clock -->
 
                     <div class="home-content__subscribe" style="z-index: 502;">
-                            <p style="color:white;font-size:1.2em; font-family: domine-regular, serif">Visit HackIndore Website</p>
+                            <p style="color:white;font-size:1.2em; font-family: domine-regular, serif">To Know More!!!</p>
                             <a href="http://www.hackindore.splashthat.com" class="clickhere">
                                 Click Here
                             </a>
+                            <br><br>
+                            <div>
+                                <a href="https://www.facebook.com/hashincludesgsits"><i class="fab fa-facebook-f" aria-hidden="true" style="margin: 0 10px;"></i></a>
+                                <a href="https://www.google.com/url?q=https://www.linkedin.com/company/include-sgsits/&sa=D&source=hangouts&ust=1547201798979000&usg=AFQjCNEQHq9T_2ABbBfC63C-mVvSVwIs-A"><i class="fab fa-linkedin" aria-hidden="true" style="margin: 0 10px;"></i></a>
+                                <a href="https://www.instagram.com/include._/"><i class="fab fa-instagram" aria-hidden="true" style="margin: 0 10px;"></i></a>
+                            </div>
                     </div>
-
+                    
+    
                 </div> <!-- end home-content__counter -->
 
             </div> <!-- end home-content__main -->
@@ -360,6 +383,23 @@
 	}
 /*==========================================================*/
 
+/*FETCHING IMAGES FROM FIREBASE
+========================================================*/
+var storage = firebase.storage();
+var storageRef = storage.ref();
+
+function get_images(event_name, n){
+    var url_list = [];
+    for(var i=1; i<=n; i++){
+        var path = event_name+"/image"+String(i)+".JPG";
+        storageRef.child(path).getDownloadURL().then(function(url) {
+            url_list.push(url)
+        });
+    }
+    return url_list;
+}
+/*==========================================================*/
+
 /*ANGULAR CONTROLLER
 ========================================================*/
 var app = angular.module('myApp', []);
@@ -390,31 +430,20 @@ var app = angular.module('myApp', []);
        		}
        }
 
-       /*Fetching Event Images from Json Files
-       ===========================================*/
-       $http.get("cipherit.json")
-            .then(function(res){
-                $scope.events[0].image = res.data.imageURL;            
-            });
-
-        $http.get("hackindore.json")
-            .then(function(res){
-                $scope.events[1].image = res.data.imageURL;            
-            });
-        /*=========================================*/        
-
        /*Event Details
        ===========================================*/
        $scope.events = [
        	{
        		name:"CipherIT",
-       		content:"content1",
-       		image: []
+       		content:"CipherIT is a coding competition aimed at promoting competitive programming culture among the students of SGSITS, Indore and help them improve their plroblem solving ability and their undertsanding of data structures and algorithms. It also focusses on making students aware about pattern of various coding competitions such as ACM-ICPC.",
+       		link:"https://www.google.com/url?q=https://www.codechef.com/CIIT2018&sa=D&source=hangouts&ust=1547199054494000&usg=AFQjCNEAAFGjEol8b7hyxZIZPumaZvFQTw",
+            image: get_images(eventname="CipherIT", totalimages=23)
        	},
        	{
        		name:"HackIndore",
-       		content:"content2",
-       		image: []
+            content:"A hackathon is a software development sprint in which computer programmers and others involved in software development, including designers and software architects collaborate intensively on software projects. #include, official technical club of Information Technology Department @ S.G.S.I.T.S. is planning to organize an intercollege hackathon #HackIndore that aims to provide software solutions to various academic departments of the institution as well to some industries and companies.",
+            link:"http://www.hackindore.splashthat.com",
+            image: get_images(eventname="HackIndore", totalimages=131)
        	}
        ];
        /*=========================================*/

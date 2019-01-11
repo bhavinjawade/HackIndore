@@ -1,27 +1,14 @@
 {
     "imageURL":[
-      "https://images.ctfassets.net/4wihyj7kcyb3/2uUvIldjmoYoUgyUqUUIc2/f570462849096dcd8833acbddb386a1a/WhatsApp_Image_2018-12-19_at_12.01.27_AM__1_.jpeg",
-      "https://images.ctfassets.net/4wihyj7kcyb3/10QpVjKSe62sWcyECcQCCC/5644211d7ca7ffa3ebd23776d5475fd2/IMG_8091.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/3FIBeh8XHOIIsOwE0aaqIo/ef842480884450aa2e499eefcbf8192d/IMG_8108.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/1k3m375sAi2YYQoKCuAQ8i/1c5a7ffd21137ff83a747f12135aa808/IMG_8090.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/7vLY4usiuAGOo4Oygkc40/5d6e5b8ce4d3859663a046e49cba3fcd/IMG_8089.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/5aNKa85iK48YkKqSwwoocy/5820769672f600fee31f8d7e4b09dc13/IMG_8112.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/33AhmYyIhGiK8awWSCgiKC/89d0c675471e49e477f223c1ad8b25e1/IMG_8099.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/65yTXCE4Za6uOcoGiQcWgE/f8d43d34339b8315f8d9a2ed47669ffe/IMG_8104.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/7ieVigpnMIQU864qMAW2IE/c97b25efefaed300aa97c9499c77e5a7/IMG_8109.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/8J9ktVplyokMWgoW46A8O/330d55f3c9639b469f77bf8b944cac7f/IMG_8105.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/4YUYAX5KzuQy2acu8iqyEu/3b002bde66564d50bcaf9e84e5e9af73/IMG_8102.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/32qggiJvK0QCECwYECMSWW/3d9841ef8ee124073818c2e83ab5dd82/WhatsApp_Image_2018-12-19_at_12.01.28_AM__2_.jpeg",
-      "https://images.ctfassets.net/4wihyj7kcyb3/GedomGGQACUeA6es0imAs/b3f456835ef0005debd4cc8146062865/IMG_8114.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/6ERl2epKz6IQ2gyKYi6yyQ/fa3da1334dcb18e73e41c8103716d15e/IMG_8093.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/5lAgTJKbp6c8k2auGo2cMY/4f2ad7fd65557b991970201d66b4bfde/IMG_8107.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/2gJpiWOq72q4cwaUoMC6MM/ad93cb92e5474b806dc3f49dcde5d36a/WhatsApp_Image_2018-12-19_at_12.01.28_AM.jpeg",
-      "https://images.ctfassets.net/4wihyj7kcyb3/2b5icf3Z8QuequG6aWAC0o/fcb3452aa8855fbe11157f63a07ee9e2/IMG_8094.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/72XDzvmhzOgQGUmK6QO88c/d1e1b2d5ea56fe28e2c8f61be45c2dd2/WhatsApp_Image_2018-12-19_at_12.01.27_AM.jpeg",
-      "https://images.ctfassets.net/4wihyj7kcyb3/4cFqu9LjyMwYIoEWWmQO46/78bfffe94c0d3c18f5cc2ff8f9135149/IMG_8115.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/1ZwXReWgjyqcQOEM42AIyW/23a3f621cd45044e90b3d8cfb1b48acb/WhatsApp_Image_2018-12-19_at_12.01.28_AM__1_.jpeg",
-      "https://images.ctfassets.net/4wihyj7kcyb3/2qHYiJwYJOM4yyI8GOgeqw/6bb3588e0e8478c1dd2b9bfefa924a36/IMG_8111.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/6FSGxhauzYw4YC8k0MkGW4/fc55f43d1d8b9a21bc5dee6f664d09da/IMG_8065.JPG",
-      "https://images.ctfassets.net/4wihyj7kcyb3/4aetjbg9niIaOO0mOGkeaS/325d7189e370d693603f672972f70dab/IMG_8092.JPG"
+      "resources/images/CipherIT/image1.JPG",
+      "resources/images/CipherIT/image2.JPG",
+      "resources/images/CipherIT/image3.JPG",
+      "resources/images/CipherIT/image4.JPG",
+      "resources/images/CipherIT/image5.JPG",
+      "resources/images/CipherIT/image6.JPG",
+      "resources/images/CipherIT/image7.JPG",
+      "resources/images/CipherIT/image8.JPG",
+      "resources/images/CipherIT/image9.JPG",
+      "resources/images/CipherIT/image10.JPG"
       ]
 }

@@ -13,7 +13,7 @@
     <!-- mobile specific metas
         ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="yJWzkKPz0-0KXPTnkw9rfck4x2b2Oiy2_niyf9-7vU8" />    
+    <meta name="google-site-verification" content="yJWzkKPz0-0KXPTnkw9rfck4x2b2Oiy2_niyf9-7vU8" />
     <!-- CSS
         ================================================== -->
     <link rel="stylesheet" href="css/base.css">
@@ -29,10 +29,10 @@
         ================================================== -->
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    
+
     <!-- firebase
         ================================================== -->
-    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
     <script>
      // Initialize Firebase
      var config = {
@@ -44,7 +44,7 @@
        messagingSenderId: "496619559074"
      };
      firebase.initializeApp(config);
-    </script>
+    </script> -->
 
     <!-- Angular
         ================================================== -->
@@ -109,7 +109,7 @@
     margin: 2%;
     border: 2px solid #ec008c !important;
         }
-        
+
 		#cover{background-color:rgba(255,255,255,0);
 			position:fixed;
 			top: 0;
@@ -146,9 +146,9 @@
 		.previous-event-button{left: 0;}
 
         .change-event-button:hover{color: white;}
-		
+
 		@media only screen and (max-width: 600px){
-			
+
             #cover{position:relative;
                 top: -75vh;}
 
@@ -219,7 +219,7 @@
 
                     <div class="home-content__subscribe" style="z-index: 502;">
                             <p style="color:white;font-size:1.2em; font-family: domine-regular, serif">To Know More!!!</p>
-                            <a href="http://www.hackindore.splashthat.com" class="clickhere">
+                            <a href="{{events[display_event].link}}" class="clickhere">
                                 Click Here
                             </a>
                             <br><br>
@@ -229,8 +229,8 @@
                                 <a href="https://www.instagram.com/include._/"><i class="fab fa-instagram" aria-hidden="true" style="margin: 0 10px;"></i></a>
                             </div>
                     </div>
-                    
-    
+
+
                 </div> <!-- end home-content__counter -->
 
             </div> <!-- end home-content__main -->
@@ -243,10 +243,10 @@
         	<p id="display" style="position: fixed;"><!--scroll count--></p>
         	<div id="event-img-heading">{{events[display_event].name}}</div>
             <div id="images-anchor"><i style="color: #ec008c;" class="fa fa-arrow-circle-up"></i> Event Photographs</div>
-			<div id="event-images" style="background-color: rgba(0,0,0,0.2); height: auto;width: 100%;margin-top: 100vh;">
+			<div id="event-images" style="background-color: rgba(0,0,0,0.2); height: auto;width: 50%;margin-top: 100vh;margin-left: 20%;">
 				<div ng-repeat="pic in events[display_event].image">
 					<img ng-src="{{pic}}" alt="image" style="height: auto;width: 80vw;margin: 0 10% 5% 10%;">
-				</div>	
+				</div>
 			</div>
 		</div>
 		<!-- ================================================== -->
@@ -256,7 +256,7 @@
 		<div ng-click="next_event()" ng-show="display_event != (events.length - 1)" class="change-event-button next-event-button">&#10097;</div>
 		<div ng-click="previous_event()" ng-show="display_event != 0" class="change-event-button previous-event-button">&#10096;</div>
 		<!-- ================================================== -->
-	
+
     </main> <!-- end s-home -->
 
 
@@ -385,29 +385,29 @@
 
 /*FETCHING IMAGES FROM FIREBASE
 ========================================================*/
-var storage = firebase.storage();
-var storageRef = storage.ref();
-
-function get_images(event_name, n){
-    var url_list = [];
-    for(var i=1; i<=n; i++){
-        var path = event_name+"/image"+String(i)+".JPG";
-        storageRef.child(path).getDownloadURL().then(function(url) {
-            url_list.push(url)
-        });
-    }
-    return url_list;
-}
+// var storage = firebase.storage();
+// var storageRef = storage.ref();
+//
+// function get_images(event_name, n){
+//     var url_list = [];
+//     for(var i=1; i<=n; i++){
+//         var path = event_name+"/image"+String(i)+".JPG";
+//         storageRef.child(path).getDownloadURL().then(function(url) {
+//             url_list.push(url)
+//         });
+//     }
+//     return url_list;
+// }
 /*==========================================================*/
 
 /*ANGULAR CONTROLLER
 ========================================================*/
 var app = angular.module('myApp', []);
     app.controller('myCtrl', function($scope, $timeout, $http){
-       
+
        $scope.display_event = 0;
        $scope.event_show = 1;
-       
+
        /*Next Event Button*/
        $scope.next_event = function(){
        		if($scope.display_event != ($scope.events.length - 1)){
@@ -430,6 +430,19 @@ var app = angular.module('myApp', []);
        		}
        }
 
+       /*Fetching Event Images from Json Files
+       ===========================================*/
+       $http.get("cipherit.json")
+            .then(function(res){
+                $scope.events[0].image = res.data.imageURL;
+            });
+
+        $http.get("hackindore.json")
+            .then(function(res){
+                $scope.events[1].image = res.data.imageURL;
+            });
+        /*=========================================*/
+
        /*Event Details
        ===========================================*/
        $scope.events = [
@@ -437,22 +450,22 @@ var app = angular.module('myApp', []);
        		name:"CipherIT",
        		content:"CipherIT is a coding competition aimed at promoting competitive programming culture among the students of SGSITS, Indore and help them improve their plroblem solving ability and their undertsanding of data structures and algorithms. It also focusses on making students aware about pattern of various coding competitions such as ACM-ICPC.",
        		link:"https://www.google.com/url?q=https://www.codechef.com/CIIT2018&sa=D&source=hangouts&ust=1547199054494000&usg=AFQjCNEAAFGjEol8b7hyxZIZPumaZvFQTw",
-            image: get_images(eventname="CipherIT", totalimages=23)
+          image: []
        	},
        	{
        		name:"HackIndore",
-            content:"A hackathon is a software development sprint in which computer programmers and others involved in software development, including designers and software architects collaborate intensively on software projects. #include, official technical club of Information Technology Department @ S.G.S.I.T.S. is planning to organize an intercollege hackathon #HackIndore that aims to provide software solutions to various academic departments of the institution as well to some industries and companies.",
-            link:"http://www.hackindore.splashthat.com",
-            image: get_images(eventname="HackIndore", totalimages=131)
+          content:"A hackathon is a software development sprint in which computer programmers and others involved in software development, including designers and software architects collaborate intensively on software projects. #include, official technical club of Information Technology Department @ S.G.S.I.T.S. is planning to organize an intercollege hackathon #HackIndore that aims to provide software solutions to various academic departments of the institution as well to some industries and companies.",
+          link:"http://www.hackindore.splashthat.com",
+          image: []
        	}
        ];
        /*=========================================*/
-   
+
     });
 /*========================================================*/
 
 </script>
-	
+
 </body>
 
 </html>
